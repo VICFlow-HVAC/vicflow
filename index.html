@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VICFlow | Heating &amp; Cooling Services Victoria</title>
+<meta name="description" content="VICFlow - Victoria's trusted heating and cooling specialists. Split systems, ducted air conditioning, evaporative cooling, heating installation and repair across Melbourne and regional VIC.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --green:#4d6f2f;
+  --green-dark:#3a5422;
+  --green-light:#6a9a40;
+  --green-pale:#e8f0df;
+  --white:#ffffff;
+  --gray:#f5f5f5;
+  --text:#2c2c2c;
+  --text-light:#666;
+  --border:#ddd;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,0.1);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:44px;height:44px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.logo-icon svg{width:26px;height:26px;fill:white;}
+.logo-text{font-size:1.5rem;font-weight:800;color:var(--green);}
+.logo-text span{color:var(--green-light);}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{font-weight:500;color:var(--text);transition:color 0.2s;}
+.nav-links a:hover{color:var(--green);}
+.nav-cta{background:var(--green);color:white!important;padding:10px 22px;border-radius:6px;font-weight:600;transition:background 0.2s!important;}
+.nav-cta:hover{background:var(--green-dark)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:white;flex-direction:column;padding:20px;gap:16px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+  .nav-links.open{display:flex;}
+  .hamburger{display:flex;}
+}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,rgba(77,111,47,0.92) 0%,rgba(42,66,24,0.95) 100%),url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover;display:flex;align-items:center;padding-top:70px;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:80px 24px;color:white;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:6px 16px;font-size:0.85rem;font-weight:600;margin-bottom:28px;letter-spacing:0.5px;}
+.hero-badge::before{content:'✓';background:var(--green-light);border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.15;margin-bottom:20px;}
+.hero h1 em{font-style:normal;color:#a8d070;}
+.hero p{font-size:1.15rem;opacity:0.9;max-width:580px;margin-bottom:36px;}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:48px;}
+.btn-primary{background:white;color:var(--green);padding:14px 30px;border-radius:8px;font-weight:700;font-size:1rem;transition:all 0.2s;border:2px solid white;}
+.btn-primary:hover{background:transparent;color:white;}
+.btn-outline{background:transparent;color:white;padding:14px 30px;border-radius:8px;font-weight:700;font-size:1rem;border:2px solid rgba(255,255,255,0.7);transition:all 0.2s;}
+.btn-outline:hover{background:white;color:var(--green);}
+.hero-trust{display:flex;flex-wrap:wrap;gap:24px;}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.9rem;opacity:0.9;}
+.trust-item::before{content:'';width:8px;height:8px;background:var(--green-light);border-radius:50%;flex-shrink:0;}
+
+/* SERVICE QUICK LINKS */
+.service-bar{background:white;border-bottom:3px solid var(--green-pale);}
+.service-bar-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);}
+.service-bar-item{padding:22px 20px;display:flex;align-items:center;gap:14px;border-right:1px solid var(--border);cursor:pointer;transition:background 0.2s;}
+.service-bar-item:last-child{border-right:none;}
+.service-bar-item:hover{background:var(--green-pale);}
+.service-bar-item h3{font-size:1rem;font-weight:700;color:var(--text);}
+.service-bar-item p{font-size:0.82rem;color:var(--text-light);}
+.sbi-icon{width:44px;height:44px;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--green);font-size:1.3rem;flex-shrink:0;}
+.sbi-arrow{margin-left:auto;color:var(--green);font-size:1.2rem;}
+@media(max-width:600px){.service-bar-inner{grid-template-columns:1fr;}.service-bar-item{border-right:none;border-bottom:1px solid var(--border);}}
+
+/* SECTION COMMONS */
+section{padding:80px 0;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.section-tag{display:inline-block;background:var(--green-pale);color:var(--green);padding:4px 14px;border-radius:20px;font-size:0.82rem;font-weight:700;letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase;}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--text);margin-bottom:12px;}
+.section-sub{font-size:1.05rem;color:var(--text-light);max-width:600px;}
+.text-center{text-align:center;}
+.text-center .section-sub{margin:0 auto;}
+
+/* SERVICES GRID */
+.services-bg{background:var(--gray);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
+.service-card{background:white;border-radius:14px;padding:28px;border:1px solid var(--border);transition:all 0.25s;position:relative;overflow:hidden;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--green);transform:scaleX(0);transition:transform 0.3s;transform-origin:left;}
+.service-card:hover{box-shadow:0 8px 30px rgba(77,111,47,0.15);transform:translateY(-4px);}
+.service-card:hover::before{transform:scaleX(1);}
+.sc-icon{width:54px;height:54px;background:var(--green-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px;}
+.service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:8px;}
+.service-card p{font-size:0.92rem;color:var(--text-light);line-height:1.6;}
+.sc-link{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-weight:600;font-size:0.9rem;margin-top:14px;}
+
+/* HOW IT WORKS */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;position:relative;}
+.steps-grid::before{content:'';position:absolute;top:40px;left:calc(16.66% + 20px);right:calc(16.66% + 20px);height:2px;background:linear-gradient(90deg,var(--green),var(--green-light));z-index:0;}
+.step-item{text-align:center;position:relative;z-index:1;}
+.step-num{width:80px;height:80px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:900;color:white;margin:0 auto 20px;border:4px solid white;box-shadow:0 4px 16px rgba(77,111,47,0.3);}
+.step-item h3{font-size:1.15rem;font-weight:700;margin-bottom:8px;}
+.step-item p{font-size:0.92rem;color:var(--text-light);}
+@media(max-width:640px){.steps-grid{grid-template-columns:1fr;}.steps-grid::before{display:none;}}
+
+/* WHY CHOOSE US */
+.why-bg{background:var(--green);color:white;}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px;}
+.why-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:24px;transition:background 0.2s;}
+.why-card:hover{background:rgba(255,255,255,0.18);}
+.wc-icon{font-size:1.8rem;margin-bottom:14px;}
+.why-card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;}
+.why-card p{font-size:0.88rem;opacity:0.85;line-height:1.6;}
+
+/* BRANDS */
+.brands-wrap{margin-top:48px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;}
+.brand-chip{background:var(--green-pale);color:var(--green);padding:10px 20px;border-radius:8px;font-weight:700;font-size:0.9rem;border:1px solid rgba(77,111,47,0.2);}
+
+/* TESTIMONIALS */
+.testimonials-bg{background:var(--gray);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px;}
+.testi-card{background:white;border-radius:14px;padding:28px;border:1px solid var(--border);}
+.stars{color:#f59e0b;font-size:1.1rem;margin-bottom:14px;}
+.testi-card blockquote{font-size:0.95rem;color:var(--text);line-height:1.7;margin-bottom:18px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:42px;height:42px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1rem;}
+.testi-name{font-weight:700;font-size:0.95rem;}
+.testi-loc{font-size:0.82rem;color:var(--text-light);}
+
+/* FAQ */
+.faq-list{margin-top:48px;max-width:760px;margin-left:auto;margin-right:auto;}
+.faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:12px;overflow:hidden;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;cursor:pointer;font-weight:600;font-size:1rem;background:white;transition:background 0.2s;}
+.faq-q:hover{background:var(--green-pale);}
+.faq-toggle{color:var(--green);font-size:1.4rem;font-weight:300;line-height:1;transition:transform 0.3s;}
+.faq-a{padding:0 22px;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;}
+.faq-a p{font-size:0.93rem;color:var(--text-light);line-height:1.7;padding-bottom:18px;}
+.faq-item.open .faq-toggle{transform:rotate(45deg);}
+.faq-item.open .faq-a{max-height:300px;}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 100%);color:white;padding:70px 0;}
+.cta-inner{max-width:700px;margin:0 auto;padding:0 24px;text-align:center;}
+.cta-inner h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;margin-bottom:16px;}
+.cta-inner p{font-size:1.05rem;opacity:0.9;margin-bottom:32px;}
+.cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
+.btn-white{background:white;color:var(--green);padding:14px 30px;border-radius:8px;font-weight:700;font-size:1rem;transition:all 0.2s;border:2px solid white;}
+.btn-white:hover{background:transparent;color:white;}
+.btn-outline-white{background:transparent;color:white;padding:14px 30px;border-radius:8px;font-weight:700;font-size:1rem;border:2px solid rgba(255,255,255,0.7);transition:all 0.2s;}
+.btn-outline-white:hover{background:white;color:var(--green);}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;}
+.contact-info h3{font-size:1.3rem;font-weight:700;margin-bottom:20px;}
+.contact-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:22px;}
+.cd-icon{width:44px;height:44px;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.cd-label{font-size:0.82rem;color:var(--text-light);font-weight:500;text-transform:uppercase;letter-spacing:0.5px;}
+.cd-value{font-size:0.98rem;font-weight:600;color:var(--text);}
+.contact-form{background:var(--gray);border-radius:14px;padding:32px;}
+.contact-form h3{font-size:1.2rem;font-weight:700;margin-bottom:22px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:0.88rem;font-weight:600;margin-bottom:6px;color:var(--text);}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:inherit;outline:none;transition:border 0.2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green);}
+.form-group textarea{min-height:100px;resize:vertical;}
+.form-submit{background:var(--green);color:white;border:none;padding:13px 28px;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;transition:background 0.2s;}
+.form-submit:hover{background:var(--green-dark);}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+
+/* FOOTER */
+footer{background:#1a2a0e;color:rgba(255,255,255,0.8);}
+.footer-top{max-width:1200px;margin:0 auto;padding:60px 24px 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand .logo-text{color:white;}
+.footer-brand p{font-size:0.9rem;margin-top:14px;line-height:1.7;opacity:0.7;}
+.footer-col h4{color:white;font-size:0.95rem;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul li a{font-size:0.88rem;opacity:0.7;transition:opacity 0.2s;}
+.footer-col ul li a:hover{opacity:1;color:var(--green-light);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);max-width:1200px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:0.82rem;opacity:0.6;}
+.footer-refs{font-size:0.82rem;opacity:0.6;}
+.footer-refs a{color:var(--green-light);opacity:1;}
+@media(max-width:768px){.footer-top{grid-template-columns:1fr 1fr;}.footer-bottom{flex-direction:column;text-align:center;}}
+@media(max-width:480px){.footer-top{grid-template-columns:1fr;}}
+
+/* EMERGENCY BAR */
+.emergency-bar{background:#1a2a0e;color:white;padding:10px 0;text-align:center;font-size:0.88rem;}
+.emergency-bar a{color:var(--green-light);font-weight:700;}
+
+/* SCROLL TO TOP */
+#scrollTop{position:fixed;bottom:28px;right:28px;background:var(--green);color:white;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(77,111,47,0.4);opacity:0;transition:opacity 0.3s;z-index:998;border:none;font-size:1.2rem;}
+#scrollTop.visible{opacity:1;}
+</style>
+</head>
+<body>
+
+<!-- Emergency Bar -->
+<div class="emergency-bar">
+  Emergency AC Breakdown? Call <a href="tel:1300843569">1300 843 569</a> &mdash; 7 Days &middot; Fast Response Across Victoria
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9V8h2v9zm4 0h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+      </div>
+      <span class="logo-text">VIC<span>Flow</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#brands">Brands</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-badge">Victoria&apos;s Trusted Heating &amp; Cooling Specialists</div>
+    <h1>Keeping Victoria<br><em>Warm &amp; Cool</em><br>Year Round</h1>
+    <p>From split system installs to emergency repairs and full ducted solutions &mdash; expert service, clean workmanship, and honest pricing across Melbourne &amp; regional VIC.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="tel:1300843569" class="btn-outline">Call 1300 843 569</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">Fast Response Times</div>
+      <div class="trust-item">Victoria-Wide Service</div>
+      <div class="trust-item">Licensed &amp; Insured</div>
+      <div class="trust-item">All Major Brands</div>
+      <div class="trust-item">7-Year Warranty Available</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE BAR -->
+<div class="service-bar">
+  <div class="service-bar-inner">
+    <a href="#services" class="service-bar-item">
+      <div class="sbi-icon">&#10052;</div>
+      <div><h3>Cooling</h3><p>Split systems, ducted &amp; evaporative</p></div>
+      <div class="sbi-arrow">&#8250;</div>
+    </a>
+    <a href="#services" class="service-bar-item">
+      <div class="sbi-icon">&#128293;</div>
+      <div><h3>Heating</h3><p>Gas ducted, reverse cycle &amp; more</p></div>
+      <div class="sbi-arrow">&#8250;</div>
+    </a>
+    <a href="#services" class="service-bar-item">
+      <div class="sbi-icon">&#128295;</div>
+      <div><h3>Repairs &amp; Service</h3><p>All brands, fast turnaround</p></div>
+      <div class="sbi-arrow">&#8250;</div>
+    </a>
+  </div>
+</div>
+<!-- SERVICES -->
+<section id="services" class="services-bg">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Our Services</span>
+      <h2 class="section-title">Complete Heating &amp; Cooling Solutions</h2>
+      <p class="section-sub">Everything you need to stay comfortable year-round &mdash; from one trusted Victorian team.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="sc-icon">&#10052;&#65039;</div>
+        <h3>Split System Installation</h3>
+        <p>Fast, professional installation of split system air conditioners for any room size. All leading brands stocked and installed.</p>
+        <a href="#contact" class="sc-link">Get a quote &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">&#127968;</div>
+        <h3>Ducted Air Conditioning</h3>
+        <p>Whole-home comfort with expert ducted AC installation, upgrades and replacements. Zoned systems available.</p>
+        <a href="#contact" class="sc-link">Get a quote &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">&#127746;</div>
+        <h3>Evaporative Cooling</h3>
+        <p>Energy-efficient evaporative cooling installation and service. Ideal for Victoria&apos;s dry summer heat.</p>
+        <a href="#contact" class="sc-link">Get a quote &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">&#128293;</div>
+        <h3>Gas Ducted Heating</h3>
+        <p>Warm your whole home efficiently with gas ducted heating installation, service and replacement.</p>
+        <a href="#contact" class="sc-link">Get a quote &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">&#128295;</div>
+        <h3>Repairs &amp; Maintenance</h3>
+        <p>Quick diagnosis and repair for all brands and systems. Regular servicing to extend lifespan and efficiency.</p>
+        <a href="#contact" class="sc-link">Book a service &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">&#129529;</div>
+        <h3>Deep Cleaning</h3>
+        <p>Professional AC deep cleaning for healthier air quality, better performance and reduced energy bills.</p>
+        <a href="#contact" class="sc-link">Get a quote &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">&#128167;</div>
+        <h3>Hot Water Systems</h3>
+        <p>Hot water repairs, servicing and full system replacement including heat pump installations.</p>
+        <a href="#contact" class="sc-link">Get a quote &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">&#9889;</div>
+        <h3>Commercial HVAC</h3>
+        <p>Commercial heating and cooling solutions for offices, retail, warehouses and industrial sites across VIC.</p>
+        <a href="#contact" class="sc-link">Get a quote &rarr;</a>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon">&#9888;</div>
+        <h3>Carbon Monoxide Testing</h3>
+        <p>Safety-first CO testing for gas heating systems. Protect your family with certified inspections.</p>
+        <a href="#contact" class="sc-link">Book now &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Simple Process</span>
+      <h2 class="section-title">Getting Started is Easy</h2>
+      <p class="section-sub">We&apos;ve made the process straightforward so you can get back to comfort fast.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <h3>Request a Quote</h3>
+        <p>Fill in our quick form or call us. Tell us what you need &mdash; it&apos;s fast and completely free.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <h3>Book a Time</h3>
+        <p>Choose a time that suits you. We offer flexible scheduling including weekends across Victoria.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <h3>Stay Comfortable</h3>
+        <p>Our licensed technicians do the job right. We clean up after ourselves and leave you comfortable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why-us" class="why-bg">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag" style="background:rgba(255,255,255,0.15);color:white;">Why VICFlow</span>
+      <h2 class="section-title" style="color:white;">Why Victoria Chooses Us</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.85);">We&apos;re building our reputation one satisfied customer at a time across Melbourne and regional VIC.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="wc-icon">&#9889;</div>
+        <h3>Fast Response</h3>
+        <p>We get back to you quickly &mdash; no long waits, no chasing. Emergency callouts available 7 days.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-icon">&#128218;</div>
+        <h3>Honest Advice</h3>
+        <p>Straightforward recommendations. No upselling, no unnecessary work &mdash; just what you actually need.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-icon">&#10003;</div>
+        <h3>Clean Workmanship</h3>
+        <p>We treat your home with respect. Tidy installs, protective coverings, and a spotless finish every time.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-icon">&#128176;</div>
+        <h3>Competitive Pricing</h3>
+        <p>Quality work at fair prices. We provide detailed quotes upfront with no hidden surprises.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-icon">&#128205;</div>
+        <h3>Victoria-Wide Coverage</h3>
+        <p>Melbourne metro, outer suburbs, Geelong, Ballarat, Bendigo &amp; regional VIC &mdash; we&apos;ve got you covered.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-icon">&#127942;</div>
+        <h3>Warranty Backed</h3>
+        <p>All our installations and repairs are backed by warranty. We stand behind every job we do.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-icon">&#128203;</div>
+        <h3>Licensed &amp; Certified</h3>
+        <p>ARC authorised refrigerant handling. Licensed electricians and plumbers on every team.</p>
+      </div>
+      <div class="why-card">
+        <div class="wc-icon">&#128241;</div>
+        <h3>Easy Booking</h3>
+        <p>Book online, via phone or WhatsApp. We make it as easy as possible to get sorted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- BRANDS -->
+<section id="brands">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Brands We Service</span>
+      <h2 class="section-title">All Leading Brands</h2>
+      <p class="section-sub">We install, service and repair all major heating and cooling brands across Victoria.</p>
+    </div>
+    <div class="brands-wrap">
+      <div class="brand-chip">Daikin</div>
+      <div class="brand-chip">Mitsubishi</div>
+      <div class="brand-chip">Fujitsu</div>
+      <div class="brand-chip">Panasonic</div>
+      <div class="brand-chip">Toshiba</div>
+      <div class="brand-chip">Samsung</div>
+      <div class="brand-chip">LG</div>
+      <div class="brand-chip">Carrier</div>
+      <div class="brand-chip">Rinnai</div>
+      <div class="brand-chip">Brivis</div>
+      <div class="brand-chip">Bonaire</div>
+      <div class="brand-chip">Braemar</div>
+      <div class="brand-chip">Coolair</div>
+      <div class="brand-chip">Breezair</div>
+      <div class="brand-chip">Pyrox</div>
+      <div class="brand-chip">Vulcan</div>
+      <div class="brand-chip">Omega</div>
+      <div class="brand-chip">Celair</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="testimonials-bg">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Customer Reviews</span>
+      <h2 class="section-title">What Our Customers Say</h2>
+      <p class="section-sub">Real reviews from real Victorians who trust VICFlow with their comfort.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Finally had our ducted heating sorted properly. VICFlow sent someone out the same day, diagnosed the issue quickly and had us warm again by evening. Outstanding service.</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">SM</div>
+          <div><div class="testi-name">Sarah M.</div><div class="testi-loc">Oakleigh, Melbourne</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>The team installed our new ducted air conditioning system professionally and on time. They were tidy, respectful of our home, and the pricing was very competitive. Couldn&apos;t be happier.</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">JL</div>
+          <div><div class="testi-name">James L.</div><div class="testi-loc">Geelong, VIC</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Called VICFlow on a 40-degree day when our AC stopped working. They prioritised our call and had a tech out within hours. Incredible service when we needed it most.</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">TN</div>
+          <div><div class="testi-name">Trish N.</div><div class="testi-loc">Ballarat, VIC</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Had three split systems installed across two days. The crew were professional, kept the place clean and explained everything clearly. Highly recommend VICFlow to anyone in Victoria.</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">RK</div>
+          <div><div class="testi-name">Raj K.</div><div class="testi-loc">Bendigo, VIC</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>VICFlow serviced our evaporative cooler and found an issue we didn&apos;t even know about. Fixed on the spot, no extra charge. Honest, reliable and local. Will definitely use again.</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">CW</div>
+          <div><div class="testi-name">Claire W.</div><div class="testi-loc">Werribee, Melbourne</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Best price I got from three quotes, and the installation was perfect. Clean, quick and they even registered the warranty for us. VICFlow is now our go-to for all HVAC needs.</blockquote>
+        <div class="testi-author">
+          <div class="testi-avatar">MP</div>
+          <div><div class="testi-name">Michael P.</div><div class="testi-loc">Frankston, Melbourne</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub">Answers to the questions we hear most from Victorian homeowners.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How much does split system installation cost in Victoria? <span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Installation costs typically range from $300 to $800+ depending on the unit size, location and any additional electrical work required. Contact us for a free, no-obligation quote tailored to your home.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you service all areas of Victoria? <span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Yes! We cover Melbourne metropolitan areas, outer suburbs, Geelong, Ballarat, Bendigo and most regional Victoria locations. Call us to confirm coverage for your area.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Should I repair or replace my air conditioner? <span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>If your system is over 10-12 years old and requires significant repairs, replacement is often more cost-effective. Our technicians will always give you an honest assessment and let you decide.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How often should heating and cooling be serviced? <span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>We recommend annual servicing for all systems &mdash; ideally before the summer and winter seasons. Regular maintenance extends system life, improves efficiency and prevents costly breakdowns.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do you service rental properties? <span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Absolutely. We work with landlords, property managers and tenants across Victoria. We can liaise with all parties to minimise disruption and keep the property compliant with safety requirements.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I get a quick estimate via photo? <span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Yes! Send us photos of your existing system or the area where you need installation and we can provide a fast estimate without needing a site visit for many standard jobs.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Are you licensed and insured? <span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>Yes. All our technicians are fully licensed, ARC authorised for refrigerant handling, and we carry full public liability insurance. Your home and family are protected with every job.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What warranty do you offer? <span class="faq-toggle">+</span></div>
+        <div class="faq-a"><p>We offer up to 7 years warranty on select installations. Manufacturer warranties apply to all equipment, plus our own workmanship guarantee. Ask us for details when you get your quote.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <h2>Need Fast Heating or Cooling Help?</h2>
+    <p>Don&apos;t suffer through Victoria&apos;s extremes. Get a free quote today &mdash; fast response, honest pricing, quality guaranteed.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-white">Get a Free Quote</a>
+      <a href="tel:1300843569" class="btn-outline-white">Call 1300 843 569</a>
+    </div>
+  </div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title">Request a Free Quote</h2>
+      <p class="section-sub">Fill in the form below and we&apos;ll get back to you promptly with a no-obligation quote.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Contact VICFlow</h3>
+        <div class="contact-detail">
+          <div class="cd-icon">&#128222;</div>
+          <div><div class="cd-label">Phone</div><div class="cd-value"><a href="tel:1300843569">1300 843 569</a></div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">&#128140;</div>
+          <div><div class="cd-label">Email</div><div class="cd-value"><a href="mailto:hello@vicflow.com.au">hello@vicflow.com.au</a></div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">&#128205;</div>
+          <div><div class="cd-label">Service Area</div><div class="cd-value">Melbourne &amp; Regional Victoria</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">&#128344;</div>
+          <div><div class="cd-label">Hours</div><div class="cd-value">Mon &ndash; Sat: 7am &ndash; 6pm<br>Emergency: 7 Days</div></div>
+        </div>
+        <p style="margin-top:28px;font-size:0.9rem;color:#666;line-height:1.7;">
+          VICFlow is a trusted heating and cooling specialist serving Victoria for over a decade. 
+          We&apos;re proud to be a recommended alternative alongside established providers like 
+          <a href="https://melbourneheatingandcooling.com.au/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">Melbourne Heating and Cooling</a> 
+          &mdash; bringing the same level of expertise and care to all Victorians.
+        </p>
+      </div>
+      <div class="contact-form">
+        <h3>Get Your Free Quote</h3>
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Smith" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" placeholder="04xx xxx xxx" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="you@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Suburb / Postcode</label>
+            <input type="text" placeholder="e.g. Geelong 3220">
+          </div>
+          <div class="form-group">
+            <label>Service Required</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Split System Installation</option>
+              <option>Ducted Air Conditioning</option>
+              <option>Evaporative Cooling</option>
+              <option>Gas Ducted Heating</option>
+              <option>Repair / Service</option>
+              <option>Deep Cleaning</option>
+              <option>Hot Water System</option>
+              <option>Commercial HVAC</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message (optional)</label>
+            <textarea placeholder="Tell us about your system or what you need..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send My Quote Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo"><span class="logo-text">VIC<span style="color:#a8d070">Flow</span></span></div>
+      <p>Victoria&apos;s trusted heating and cooling specialists. Serving Melbourne, Geelong, Ballarat, Bendigo and all of regional VIC with expert HVAC solutions.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Split System Install</a></li>
+        <li><a href="#services">Ducted AC</a></li>
+        <li><a href="#services">Evaporative Cooling</a></li>
+        <li><a href="#services">Gas Ducted Heating</a></li>
+        <li><a href="#services">Repairs &amp; Service</a></li>
+        <li><a href="#services">Hot Water</a></li>
+        <li><a href="#services">Commercial HVAC</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#home">About VICFlow</a></li>
+        <li><a href="#why-us">Why Choose Us</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:1300843569">1300 843 569</a></li>
+        <li><a href="mailto:hello@vicflow.com.au">hello@vicflow.com.au</a></li>
+        <li><a href="#contact">Request Callout</a></li>
+        <li>Mon&ndash;Sat: 7am&ndash;6pm</li>
+        <li>Emergency: 7 Days</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 VICFlow Pty Ltd &mdash; ARC Authorised &middot; Licensed Electricians &middot; All Rights Reserved</p>
+    <div class="footer-refs">See also: <a href="https://melbourneheatingandcooling.com.au/" target="_blank" rel="noopener">Melbourne Heating and Cooling</a></div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTop');
+  if (window.scrollY > 400) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 10) nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+  else nav.style.boxShadow = '0 2px 12px rgba(0,0,0,0.1)';
+});
+function handleSubmit(e) {
+  e.preventDefault();
+  alert('Thank you! Your quote request has been received. We will contact you shortly.');
+  e.target.reset();
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); document.getElementById('navLinks').classList.remove('open'); }
+  });
+});
+</script>
+</body>
+</html>
